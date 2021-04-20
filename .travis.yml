@@ -3,18 +3,12 @@ language: java
 jdk:
   - openjdk15
 
-services:
-  - postgresql
-
-before_install:
-  - psql -c 'create database rabbit;' -U postgres
-  -
 # используем режим обычного пользователя для сборки проекта.
 sudo: false
 
 env:
   global:
-    - CODECOV_TOKEN="90a1faec-71c7-4eae-b787-8a0deaa5c1b0"
+    - CODECOV_TOKEN="695bfee3-ca00-4802-adef-7fe44c5505a9"
 
 # после выполнения сборки запустить скрипт, который будет собирать статистику по JaCoCo
 # Здесь используется сторонни сервис https://codecov.io/
