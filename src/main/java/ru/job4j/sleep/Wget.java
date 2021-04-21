@@ -1,4 +1,4 @@
-package sleep;
+package ru.job4j.sleep;
 
 import java.io.BufferedInputStream;
 import java.io.FileOutputStream;
