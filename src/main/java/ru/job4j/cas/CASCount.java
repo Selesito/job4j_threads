@@ -13,7 +13,7 @@ public class CASCount {
         int newCount;
         do {
             curCount = count.get();
-            newCount = curCount++;
+            newCount = curCount + 1;
         } while (!count.compareAndSet(curCount, newCount));
     }
 
