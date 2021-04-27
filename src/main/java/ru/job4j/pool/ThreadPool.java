@@ -10,17 +10,7 @@ public class ThreadPool {
     private final SimpleBlockingQueue<Runnable> tasks = new SimpleBlockingQueue<>();
     private int size = Runtime.getRuntime().availableProcessors();
 
-    public void work(Runnable job) throws InterruptedException {
-        tasks.offer(job);
-    }
-
-    public void shutdown() {
-        for (Thread thread : threads) {
-            thread.interrupt();
-        }
-    }
-
-    public void pool() {
+    public ThreadPool() {
         while (threads.size() < size) {
             Thread thread = new Thread(
                     () -> {
@@ -36,6 +26,16 @@ public class ThreadPool {
             );
             thread.start();
             threads.add(thread);
+        }
+    }
+
+    public void work(Runnable job) throws InterruptedException {
+        tasks.offer(job);
+    }
+
+    public void shutdown() {
+        for (Thread thread : threads) {
+            thread.interrupt();
         }
     }
 }
