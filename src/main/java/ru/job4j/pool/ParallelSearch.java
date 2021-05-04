@@ -22,7 +22,7 @@ public class ParallelSearch<T> extends RecursiveTask<Integer> {
         if (array.length < 10) {
             return Arrays.asList(array).indexOf(element);
         }
-        int mid = (from + (to - from)) / 2;
+        int mid = to / 2;
         ParallelSearch<T> leftSort = new ParallelSearch(array, element, from, mid);
         ParallelSearch<T> rightSort = new ParallelSearch(array, element, mid + 1, to);
         leftSort.fork();
