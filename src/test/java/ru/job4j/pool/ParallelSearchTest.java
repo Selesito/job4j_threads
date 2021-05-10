@@ -20,4 +20,14 @@ public class ParallelSearchTest {
         int index1 = ParallelSearch.findIndex(array1, 56);
         assertThat(index1, is(-1));
     }
+
+    @Test
+    public void whenFindIndexSize30ThenTrue() {
+        Integer[] array1 = new Integer[31];
+        for (int i = 0; i < array1.length; i++) {
+            array1[i] = i;
+        }
+        int index1 = ParallelSearch.findIndex(array1, 14);
+        assertThat(index1, is(14));
+    }
 }
